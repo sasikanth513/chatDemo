@@ -1,0 +1,41 @@
+<head>
+  <title>chatDemo</title>
+</head>
+
+<body>
+  <div id="wrapper">
+       {{> sidebar }}
+       <div id="page-content-wrapper">
+          <h1>Chatapp</h1>
+          {{> loginButtons align="right"}}<br>
+          {{> input }}
+          {{> messages }}
+      </div>
+  </div>
+</body>
+
+
+<template name="sidebar">
+    <div id="sidebar-wrapper">
+        <ul class="sidebar-nav onlUsers">
+            <li class="sidebar-brand">
+                <a href="#">
+                    Online Users
+                </a>
+            </li>
+            {{#each onlusr}}
+                <li class="user"><a href='#'>{{username}}</a></li>
+            {{/each}}
+        </ul>
+    </div>
+</template>
+
+<template name="messages">
+  {{#each msgs}}
+    <strong>{{name}}:</strong> {{text}}<br>
+  {{/each}}
+</template>
+
+<template name="input">
+  <p>Message: <input type="text" id="message"></p>
+</template>

@@ -1,0 +1,1 @@
+ChatRooms = new Meteor.Collection("chatrooms");
