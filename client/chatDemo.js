@@ -1,7 +1,7 @@
 Accounts.ui.config({
    passwordSignupFields: 'USERNAME_AND_EMAIL'
 });
-Deps.autorun(function(){
+Tracker.autorun(function(){
     Meteor.subscribe("chatrooms");
     Meteor.subscribe("onlusers");
 });
@@ -32,8 +32,9 @@ Template.sidebar.events({
 Template.messages.helpers({
     'msgs':function(){
         var result=ChatRooms.findOne({_id:Session.get('roomid')});
-        
-        return result.messages;
+        if(result){
+          return result.messages;
+        }
     }
 });
 
